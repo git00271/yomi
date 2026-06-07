@@ -139,56 +139,71 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================================================
-       5. Leaflet Map Configuration (Dark Skinned)
+       5. Leaflet Map Configuration (Dark Skinned) - Lazy Loaded
        ========================================================================== */
-    // Location coordinates for 구월동 1176 2층, Incheon
+    const mapContainer = document.getElementById('map');
     const yomiKayaCoords = [37.447545, 126.702958];
     
-    // Initialize map
-    const map = L.map('map', {
-        center: yomiKayaCoords,
-        zoom: 16,
-        scrollWheelZoom: false, // Prevent zoom scroll hijacking
-        zoomControl: true
-    });
+    if (mapContainer) {
+        const mapObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Initialize map only when it enters the viewport
+                    const map = L.map('map', {
+                        center: yomiKayaCoords,
+                        zoom: 16,
+                        scrollWheelZoom: false, // Prevent zoom scroll hijacking
+                        zoomControl: true
+                    });
 
-    // Add CartoDB Dark Matter tile layer for premium dark aesthetics
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        subdomains: 'abcd',
-        maxZoom: 20
-    }).addTo(map);
+                    // Add CartoDB Dark Matter tile layer for premium dark aesthetics
+                    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                        subdomains: 'abcd',
+                        maxZoom: 20
+                    }).addTo(map);
 
-    // Custom Glowing Purple Marker Icon
-    const purpleIcon = L.divIcon({
-        className: 'custom-map-marker',
-        html: `
-            <div style="
-                width: 20px; 
-                height: 20px; 
-                background: #ff9e00; 
-                border: 3px solid #9d4edd; 
-                border-radius: 50%; 
-                box-shadow: 0 0 15px #d500f9, 0 0 30px #d500f9;
-                animation: floating-anim 2s infinite alternate;
-            "></div>
-        `,
-        iconSize: [20, 20],
-        iconAnchor: [10, 10]
-    });
+                    // Custom Glowing Purple Marker Icon
+                    const purpleIcon = L.divIcon({
+                        className: 'custom-map-marker',
+                        html: `
+                            <div style="
+                                width: 20px; 
+                                height: 20px; 
+                                background: #ff9e00; 
+                                border: 3px solid #9d4edd; 
+                                border-radius: 50%; 
+                                box-shadow: 0 0 15px #d500f9, 0 0 30px #d500f9;
+                                animation: floating-anim 2s infinite alternate;
+                            "></div>
+                        `,
+                        iconSize: [20, 20],
+                        iconAnchor: [10, 10]
+                    });
 
-    // Add marker
-    const marker = L.marker(yomiKayaCoords, { icon: purpleIcon }).addTo(map);
-    
-    // Bind aesthetic popup
-    marker.bindPopup(`
-        <div style="color: #ffffff; font-family: 'Noto Sans KR', sans-serif; text-align: center; padding: 5px;">
-            <strong style="color: #c77dff; font-size: 14px;">요미카야 (Yomi Kaya)</strong><br>
-            <span style="font-size: 12px; color: #a39cb4;">인천 남동구 남동대로691번길 17 2층</span>
-        </div>
-    `, {
-        className: 'dark-popup'
-    }).openPopup();
+                    // Add marker
+                    const marker = L.marker(yomiKayaCoords, { icon: purpleIcon }).addTo(map);
+                    
+                    // Bind aesthetic popup
+                    marker.bindPopup(`
+                        <div style="color: #ffffff; font-family: 'Noto Sans KR', sans-serif; text-align: center; padding: 5px;">
+                            <strong style="color: #c77dff; font-size: 14px;">요미카야 (Yomi Kaya)</strong><br>
+                            <span style="font-size: 12px; color: #a39cb4;">인천 남동구 남동대로691번길 17 2층</span>
+                        </div>
+                    `, {
+                        className: 'dark-popup'
+                    }).openPopup();
+
+                    // Stop observing after initialization
+                    mapObserver.unobserve(mapContainer);
+                }
+            });
+        }, {
+            rootMargin: '150px 0px 150px 0px' // Load 150px before coming into view for smooth UX
+        });
+
+        mapObserver.observe(mapContainer);
+    }
 
     /* ==========================================================================
        6. Booking Modal & Form Handler
