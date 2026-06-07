@@ -49,6 +49,7 @@
                     <li><a href="#menu" class="nav-item">Menu</a></li>
                     <li><a href="#reviews" class="nav-item">Reviews</a></li>
                     <li><a href="#instagram" class="nav-item">Instagram</a></li>
+                    <li><a href="#media" class="nav-item">Media</a></li>
                     <li><a href="#location" class="nav-item">Find Us</a></li>
                 </ul>
             </nav>
@@ -557,6 +558,38 @@
             </div>
         </section>
 
+        <!-- Vlog & Media Section -->
+        <section id="media" class="section media-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <div class="section-subtitle">VLOG & MEDIA</div>
+                    <h2 class="section-title">요미카야 미디어</h2>
+                    <p class="section-header-text">유튜브를 통해 요미카야의 생생한 분위기와 일상을 영상으로 만나보세요.</p>
+                </div>
+                
+                <div class="video-grid">
+                    <div class="video-item">
+                        <div class="video-label">🎬 요미카야 브이로그 Vol.1</div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/EBlDJlzy2wU" 
+                                    title="인천 구월동 숙성회 맛집 요미카야 브이로그" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-label">🎬 요미카야 브이로그 Vol.2</div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/FXHLzTOZFzE" 
+                                    title="인천 구월동 이자카야 요미카야 분위기" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Find Us (Map & Operating Info) Section -->
         <section id="location" class="section location-section">
             <div class="container grid-layout-2">
@@ -765,6 +798,36 @@
                 </div>
                 
             </div>
+        </div>
+    </div>
+
+    <!-- BGM Player Audio Element & Widget -->
+    <!-- Using a reliable CDN-hosted royalty-free lofi jazz track -->
+    <audio id="bgm-player" loop preload="none">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div id="bgm-widget" class="bgm-widget">
+        <button id="bgm-toggle-btn" class="bgm-btn" aria-label="음악 재생/일시정지">
+            <!-- Play Icon -->
+            <svg id="bgm-play-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+            </svg>
+            <!-- Pause Icon -->
+            <svg id="bgm-pause-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="display: none;">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+        </button>
+        <div class="bgm-info">
+            <span class="bgm-title">Tokyo Lo-Fi</span>
+            <span id="bgm-status-text" class="bgm-status">Muted</span>
+        </div>
+        <div class="bgm-equalizer">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </div>
 

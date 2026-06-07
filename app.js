@@ -333,4 +333,98 @@ document.addEventListener('DOMContentLoaded', () => {
             copyToast.textContent = '📋 자동 복사에 실패했습니다. 모바일 브라우저의 보안 정책으로 인해 직접 복사해 주세요.';
         }
     }
+
+    /* ==========================================================================
+       7. BGM Player Controller (Autoplay on first interaction)
+       ========================================================================== */
+    const bgmPlayer = document.getElementById('bgm-player');
+    const bgmToggleBtn = document.getElementById('bgm-toggle-btn');
+    const bgmPlayIcon = document.getElementById('bgm-play-icon');
+    const bgmPauseIcon = document.getElementById('bgm-pause-icon');
+    const bgmStatusText = document.getElementById('bgm-status-text');
+    const bgmWidget = document.getElementById('bgm-widget');
+
+    let bgmStarted = false;
+
+    // Update UI to playing state
+    const setBgmPlaying = () => {
+        bgmPlayIcon.style.display = 'none';
+        bgmPauseIcon.style.display = 'block';
+        if (bgmStatusText) bgmStatusText.textContent = 'Playing';
+        if (bgmWidget) bgmWidget.classList.add('playing');
+    };
+
+    // Update UI to paused state
+    const setBgmPaused = () => {
+        bgmPlayIcon.style.display = 'block';
+        bgmPauseIcon.style.display = 'none';
+        if (bgmStatusText) bgmStatusText.textContent = 'Paused';
+        if (bgmWidget) bgmWidget.classList.remove('playing');
+    };
+
+    // Attempt to start BGM
+    const startBgm = () => {
+        if (bgmStarted) return;
+        bgmStarted = true;
+
+        bgmPlayer.volume = 0.35;
+        bgmPlayer.play()
+            .then(() => {
+                setBgmPlaying();
+                // Remove first-interaction listeners once playing
+                document.removeEventListener('click', startBgm);
+                document.removeEventListener('scroll', startBgm);
+                document.removeEventListener('keydown', startBgm);
+                document.removeEventListener('touchstart', startBgm);
+            })
+            .catch(() => {
+                // Autoplay blocked - wait for user interaction
+                bgmStarted = false;
+            });
+    };
+
+    if (bgmPlayer && bgmToggleBtn) {
+        // 1. Try immediate autoplay on page load
+        bgmPlayer.load();
+        bgmPlayer.play()
+            .then(() => {
+                bgmStarted = true;
+                setBgmPlaying();
+            })
+            .catch(() => {
+                // Autoplay blocked by browser policy
+                // Start on first user interaction instead
+                document.addEventListener('click', startBgm, { once: false });
+                document.addEventListener('scroll', startBgm, { once: false });
+                document.addEventListener('keydown', startBgm, { once: false });
+                document.addEventListener('touchstart', startBgm, { once: false });
+            });
+
+        // 2. Toggle button: manual play/pause
+        bgmToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // prevent triggering startBgm
+            bgmStarted = true;
+
+            if (bgmPlayer.paused) {
+                bgmPlayer.play()
+                    .then(setBgmPlaying)
+                    .catch(err => {
+                        console.warn('BGM 재생 실패:', err);
+                        if (bgmStatusText) bgmStatusText.textContent = 'Error';
+                    });
+            } else {
+                bgmPlayer.pause();
+                setBgmPaused();
+            }
+        });
+
+        // Loop fallback
+        bgmPlayer.addEventListener('ended', setBgmPaused);
+
+        // Error fallback
+        bgmPlayer.addEventListener('error', () => {
+            console.warn('BGM 소스 로드 실패');
+            if (bgmStatusText) bgmStatusText.textContent = 'Unavailable';
+        });
+    }
 });
