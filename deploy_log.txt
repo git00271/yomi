@@ -1,5 +1,1 @@
 [배포 로그 생성 중...] 
-On branch main
-nothing to commit, working tree clean
-To https://github.com/git00271/yomi.git
- * [new branch]      main -> main
