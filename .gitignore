@@ -1,0 +1,9 @@
+# Temporary scratch files
+check_dimensions.py
+optimize_all.py
+
+# System files
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp

@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요미카야 | 구월동 감성 이자카야 & 숙성회 전문점</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="인천 구월동의 작은 일본, 보랏빛 조명과 귀여운 고양이가 반겨주는 아늑한 이자카야 요미카야입니다. 신선한 숙성 사시미, 야끼소바, 오코노미야끼와 시그니처 하이볼을 즐겨보세요.">
+    <meta name="keywords" content="요미카야, 구월동 이자카야, 인천 이자카야, 구월동 맛집, 구월동 숙성회, 구월동 사시미, 구월동 하이볼, 구월동 고양이, 인천 맛집">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="요미카야 | 구월동 감성 이자카야">
+    <meta property="og:description" content="보랏빛 조명과 고양이 벽화가 눈길을 사로잡는 구월동 아늑한 이자카야 '요미카야'에 오신 것을 환영합니다.">
+    <meta property="og:image" content="assets/exterior.gif">
+    <meta property="og:url" content="https://www.instagram.com/yomi_kaya/">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet.js Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header id="site-header">
+        <div class="container navbar">
+            <a href="#" class="logo-link" id="nav-logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                <img src="assets/logo.jpg" alt="요미카야 로고" class="logo-img" style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--primary); box-shadow: 0 0 10px var(--primary-glow); object-fit: cover;">
+                <span class="logo-neon-text">YOMI KAYA</span>
+            </a>
+            
+            <nav id="main-nav">
+                <ul class="nav-menu">
+                    <li><a href="#hero" class="nav-item active">Home</a></li>
+                    <li><a href="#story" class="nav-item">Story</a></li>
+                    <li><a href="#menu" class="nav-item">Menu</a></li>
+                    <li><a href="#reviews" class="nav-item">Reviews</a></li>
+                    <li><a href="#instagram" class="nav-item">Instagram</a></li>
+                    <li><a href="#location" class="nav-item">Find Us</a></li>
+                </ul>
+            </nav>
+            
+            <button class="btn btn-primary btn-nav-reserve" id="reserve-btn-nav">
+                <span>예약하기</span>
+            </button>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="메뉴 열기">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-bg-overlay" style="background-image: url('assets/exterior.gif');"></div>
+        <div class="container hero-content">
+            <div class="hero-text-wrapper">
+                <div class="hero-tagline neon-purple-glow">구월동의 작은 일본</div>
+                <h1 class="hero-title">
+                    <span class="text-gradient-purple">요미카야</span>
+                </h1>
+                <p class="hero-description">
+                    술과 분위기에 어울리는 신선한 음식들을 정성들여 준비해놓겠습니다.<br>
+                    어스름한 보랏빛 조명 아래, 고양이들이 쉬어가는 구월동의 따뜻한 아지트 '요미카야'입니다.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#menu" class="btn btn-secondary"><span>메뉴 보기</span></a>
+                    <button class="btn btn-primary" id="reserve-btn-hero"><span>자리 예약하기</span></button>
+                </div>
+            </div>
+            <div class="hero-badge-wrapper floating-anim">
+                <div class="glass-card hero-badge">
+                    <div class="badge-icon">🐈</div>
+                    <div class="badge-text">
+                        <h4>고양이 아지트</h4>
+                        <p>길고양이들도 머무는 포근한 쉼터</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <a href="#story" aria-label="아래로 스크롤">
+                <span class="mouse-icon">
+                    <span class="scroll-wheel"></span>
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Brand Story / Concept Section -->
+        <section id="story" class="section story-section">
+            <div class="container grid-layout-2">
+                <div class="story-image-container">
+                    <div class="image-stack">
+                        <div class="image-stack-item item-main">
+                            <img src="assets/interior_mood.gif" alt="요미카야 실내 아늑한 분위기" class="rounded-img img-shadow">
+                        </div>
+                        <div class="image-stack-item item-sub floating-anim-reverse">
+                            <img src="assets/interior_light.jpg" alt="요미카야 전통등 인테리어" class="rounded-img img-shadow">
+                        </div>
+                    </div>
+                </div>
+                <div class="story-text-container">
+                    <div class="section-subtitle">OUR STORY</div>
+                    <h2 class="section-title">달콤한 요미와<br>포근한 카야의 만남</h2>
+                    <p class="section-text">
+                        <strong>요미(Yomi)</strong>는 '맛있는(Yummy)' 혹은 '귀여운'을 의미하며, 
+                        <strong>카야(Kaya)</strong>는 지붕이 있는 대피소를 뜻합니다.<br><br>
+                        요미카야는 바쁜 도심 속에서 맛있는 요리를 즐기고 지친 몸을 뉘일 수 있는 따뜻한 안식처를 꿈꿉니다. 
+                        가게 앞 사장님이 손수 챙기시는 '고양이 아지트'에서 길고양이들이 평화롭게 낮잠을 청하듯, 
+                        이곳을 찾는 모든 이들이 걱정을 털어내고 행복한 기억을 가져가길 바랍니다.
+                    </p>
+                    <div class="story-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">✨</span>
+                            <div>
+                                <h4>보랏빛 몽환적 감성</h4>
+                                <p>가게 전체를 아우르는 신비롭고 힙한 보라색 라이팅</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🍣</span>
+                            <div>
+                                <h4>정통 숙성회와 일식요리</h4>
+                                <p>비법 온도로 숙성하여 깊은 풍미를 내는 프리미엄 사시미</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signature Menu Section -->
+        <section id="menu" class="section menu-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <div class="section-subtitle">MENU BOARD</div>
+                    <h2 class="section-title">요미카야 시그니처</h2>
+                    <p class="section-header-text">신선한 재료로 정성을 다해 준비하는 요미카야의 한정 메뉴입니다.</p>
+                </div>
+                
+                <!-- Category Filter -->
+                <div class="menu-filters">
+                    <button class="filter-btn active" data-filter="all">전체보기</button>
+                    <button class="filter-btn" data-filter="sashimi">숙성 사시미</button>
+                    <button class="filter-btn" data-filter="dishes">요리 안주</button>
+                    <button class="filter-btn" data-filter="dessert">디저트 &amp; 음료</button>
+                </div>
+                
+                <!-- Menu Grid -->
+                <div class="menu-grid" id="menu-grid-container">
+                    
+                    <!-- Item 1: 오늘의 사시미 (2인) -->
+                    <div class="menu-card glass-card" data-category="sashimi">
+                        <div class="menu-image-wrapper">
+                            <img src="assets/sashimi_today.jpg" alt="오늘의 사시미 2인" class="menu-img">
+                            <span class="menu-badge highlight">대표</span>
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-header">
+                                <h3 class="menu-item-title">오늘의 사시미 (2인)</h3>
+                                <span class="menu-item-price">40,000원</span>
+                            </div>
+                            <p class="menu-item-desc">당일 새벽 수산시장에서 엄선해온 제철 생선을 요미카야만의 노하우로 감칠맛을 극대화하여 숙성한 대표 사시미.</p>
+                            <div class="menu-tags">
+                                <span>#숙성회</span>
+                                <span>#제철생선</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: 오늘의 사시미 (3인) -->
+                    <div class="menu-card glass-card" data-category="sashimi">
+                        <div class="menu-image-wrapper">
+                            <img src="assets/sashimi_closeup.gif" alt="오늘의 사시미 3인" class="menu-img">
+                            <span class="menu-badge">인기</span>
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-header">
+                                <h3 class="menu-item-title">오늘의 사시미 (3인)</h3>
+                                <span class="menu-item-price">59,000원</span>
+                            </div>
+                            <p class="menu-item-desc">단체 모임이나 사시미를 더 넉넉하고 다채롭게 즐기고 싶으신 분들을 위한 풍성한 구성의 3인 사시미 세트.</p>
+                            <div class="menu-tags">
+                                <span>#사시미세트</span>
+                                <span>#푸짐한구성</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3: 한우 모츠나베 -->
+                    <div class="menu-card glass-card" data-category="dishes">
+                        <div class="menu-image-wrapper">
+                            <img src="assets/interior_table.jpg" alt="한우 모츠나베" class="menu-img">
+                            <span class="menu-badge">강추</span>
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-header">
+                                <h3 class="menu-item-title">한우 모츠나베</h3>
+                                <span class="menu-item-price">33,000원</span>
+                            </div>
+                            <p class="menu-item-desc">매일 공수받는 신선하고 고소한 한우 대창과 곱창, 신선한 야채가 듬뿍 들어가 국물 맛이 일품인 대표 뜨끈 국물 안주.</p>
+                            <div class="menu-tags">
+                                <span>#대창나베</span>
+                                <span>#소주안주</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: 스키야끼 -->
+                    <div class="menu-card glass-card" data-category="dishes">
+                        <div class="menu-image-wrapper">
+                            <img src="assets/interior_light.jpg" alt="스키야끼" class="menu-img">
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-header">
+                                <h3 class="menu-item-title">스키야끼</h3>
+                                <span class="menu-item-price">24,000원</span>
+                            </div>
+                            <p class="menu-item-desc">얇게 썬 소고기와 갖은 야채, 두부를 달콤 짭조름한 특제 쯔유 육수에 자작하게 끓여 고소한 계란 노른자에 찍어 먹는 정통 나베.</p>
+                            <div class="menu-tags">
+                                <span>#일본식나베</span>
+                                <span>#담백한맛</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5: 요미 후토마끼 -->
+                    <div class="menu-card glass-card" data-category="sashimi">
+                        <div class="menu-image-wrapper">
+                            <img src="assets/tuna_sushi.jpg" alt="요미 후토마끼" class="menu-img">
+                            <span class="menu-badge">인기</span>
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-header">
+                                <h3 class="menu-item-title">요미 후토마끼 (5pcs)</h3>
+                                <span class="menu-item-price">17,000원</span>
+                            </div>
+                            <p class="menu-item-desc">참치, 연어 등 신선한 생선회와 계란말이, 새우튀김, 각종 아삭한 야채를 한가득 채워 큼직하게 말아낸 한입의 사치.</p>
+                            <div class="menu-tags">
+                                <span>#대형김밥</span>
+                                <span>#식사겸안주</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 6: 수제 오코노미야끼 -->
+                    <div class="menu-card glass-card" data-category="dishes">
+                        <div class="menu-image-wrapper">
+                            <img src="assets/okonomiyaki.gif" alt="수제 오코노미야끼" class="menu-img">
+                            <span class="menu-badge">수제</span>
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-header">
+                                <h3 class="menu-item-title">수제 오코노미야끼</h3>
+                                <span class="menu-item-price">12,000원</span>
+                            </div>
+                            <p class="menu-item-desc">달콤 짭조름한 마요 소스에 양배추, 베이컨, 오징어를 가득 얹고 살아 움직이듯 흩날리는 가쓰오부시를 얹어 구워낸 철판 야끼.</p>
+                            <div class="menu-tags">
+                                <span>#철판요리</span>
+                                <span>#맥주도둑</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 7: 요미 초밥 -->
+                    <div class="menu-card glass-card" data-category="sashimi">
+                        <div class="menu-image-wrapper">
+                            <img src="assets/interior_bar.jpg" alt="요미 초밥" class="menu-img">
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-header">
+                                <h3 class="menu-item-title">요미 초밥 (14pcs)</h3>
+                                <span class="menu-item-price">19,000원</span>
+                            </div>
+                            <p class="menu-item-desc">광어, 참치, 연어, 새우 등 당일 엄선한 제철 횟감을 최상의 밥 온도와 함께 쥐어낸 모둠 초밥 세트.</p>
+                            <div class="menu-tags">
+                                <span>#모둠초밥</span>
+                                <span>#든든한식사</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 8: 포테토 사라다 -->
+                    <div class="menu-card glass-card" data-category="dessert">
+                        <div class="menu-image-wrapper">
+                            <img src="assets/interior_decor.jpg" alt="포테토 사라다" class="menu-img">
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-header">
+                                <h3 class="menu-item-title">포테토 사라다</h3>
+                                <span class="menu-item-price">9,500원</span>
+                            </div>
+                            <p class="menu-item-desc">부드러운 삶은 감자를 으깨어 특제 소스에 버무리고 바삭한 베이컨 칩과 치즈를 토핑하여 가볍게 곁들이기 최적인 가성비 안주.</p>
+                            <div class="menu-tags">
+                                <span>#감자샐러드</span>
+                                <span>#사이드안주</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 9: 토마토 매실절임 -->
+                    <div class="menu-card glass-card" data-category="dessert">
+                        <div class="menu-image-wrapper">
+                            <img src="assets/tomato_pickle.jpg" alt="토마토 매실절임" class="menu-img">
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-header">
+                                <h3 class="menu-item-title">토마토 매실절임</h3>
+                                <span class="menu-item-price">7,000원</span>
+                            </div>
+                            <p class="menu-item-desc">껍질을 벗긴 아삭하고 달콤한 토마토를 3년 숙성 최고급 매실청에 직접 재워 상큼한 마무리를 보장하는 최고의 입가심 디저트.</p>
+                            <div class="menu-tags">
+                                <span>#수제디저트</span>
+                                <span>#새콤달콤</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 10: 하이볼 -->
+                    <div class="menu-card glass-card" data-category="dessert">
+                        <div class="menu-image-wrapper">
+                            <div class="drink-placeholder">
+                                <div class="highball-bubble-effect"></div>
+                                <span class="drink-icon">🍹</span>
+                            </div>
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-header">
+                                <h3 class="menu-item-title">구월 시그니처 하이볼</h3>
+                                <span class="menu-item-price">8,000원</span>
+                            </div>
+                            <p class="menu-item-desc">요미카야의 특제 위스키 황금 비율 블렌딩에 싱그러운 레몬과 시원한 탄산수를 더해 숙성 사시미와 극상의 페어링을 보여주는 하이볼.</p>
+                            <div class="menu-tags">
+                                <span>#하이볼전문</span>
+                                <span>#시그니처주류</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Naver Reviews Section -->
+        <section id="reviews" class="section reviews-section">
+            <div class="container grid-layout-2">
+                <!-- Left: Keyword Ratings ("이런 점이 좋았어요") -->
+                <div class="reviews-keywords-wrapper">
+                    <div class="section-subtitle">NAVER PLACE</div>
+                    <h2 class="section-title">방문객이 뽑은<br>요미카야의 매력</h2>
+                    <p class="section-text">네이버 플레이스 방문자 영수증 리뷰에서 가장 많은 선택을 받은 요미카야의 대표 키워드입니다.</p>
+                    
+                    <div class="keyword-bars">
+                        <div class="keyword-bar-item">
+                            <div class="bar-info">
+                                <span>🍣 음식이 맛있어요</span>
+                                <span>94%</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill"></div>
+                            </div>
+                        </div>
+                        <div class="keyword-bar-item">
+                            <div class="bar-info">
+                                <span>🐈 분위기가 좋고 특별해요</span>
+                                <span>89%</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill"></div>
+                            </div>
+                        </div>
+                        <div class="keyword-bar-item">
+                            <div class="bar-info">
+                                <span>🍹 특별한 메뉴와 하이볼이 있어요</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill"></div>
+                            </div>
+                        </div>
+                        <div class="keyword-bar-item">
+                            <div class="bar-info">
+                                <span>💁 서비스가 친절해요</span>
+                                <span>82%</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill"></div>
+                            </div>
+                        </div>
+                        <div class="keyword-bar-item">
+                            <div class="bar-info">
+                                <span>🍺 혼술하기 좋아요</span>
+                                <span>78%</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right: Textual Review Cards -->
+                <div class="reviews-cards-wrapper">
+                    <div class="reviews-header-info" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 25px;">
+                        <div class="rating-stars-total">
+                            <span class="rating-number">4.88</span>
+                            <span class="stars-gold">★★★★★</span>
+                            <span class="reviews-count">(방문자 리뷰 400+)</span>
+                        </div>
+                        <a href="https://map.naver.com/p/entry/place/1162306479?placePath=/review/visitor" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 8px 16px; font-size: 13px; border-color: rgba(3, 207, 93, 0.4); color: #ffffff; text-decoration: none;">
+                            <span style="display: flex; align-items: center; gap: 6px;">
+                                <span style="background: #03cf5d; color: #fff; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 10px; font-weight: 800; font-family: sans-serif;">N</span>
+                                네이버 리뷰 전체 보기
+                            </span>
+                        </a>
+                    </div>
+                    
+                    <div class="review-card-list">
+                        <!-- Card 1 -->
+                        <div class="review-card glass-card">
+                            <div class="review-card-content">
+                                <div class="review-card-header">
+                                    <span class="reviewer-name">min***님 (네이버 예약 방문)</span>
+                                    <span class="review-rating">★★★★★</span>
+                                </div>
+                                <p class="review-card-text">"구월동 이자카야 정착 완료요! 오늘의 사시미 숙성이 진짜 대박입니다. 곁들여 먹는 트러플 소금이랑 감태 조합이 신의 한 수예요. 인테리어 고양이 피규어들도 취향 저격... 💜"</p>
+                            </div>
+                            <div class="review-card-image">
+                                <img src="assets/sashimi_today.jpg" alt="리뷰 사시미 사진">
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="review-card glass-card">
+                            <div class="review-card-content">
+                                <div class="review-card-header">
+                                    <span class="reviewer-name">swe***님 (영수증 인증 리뷰)</span>
+                                    <span class="review-rating">★★★★★</span>
+                                </div>
+                                <p class="review-card-text">"보랏빛 네온 조명 분위기 독특하고 너무 좋아요! 시그니처 하이볼이랑 오코노미야끼 시켜 먹었는데 환상의 짝꿍입니다. 가성비도 맛도 최고라서 조만간 또 가려구요."</p>
+                            </div>
+                            <div class="review-card-image">
+                                <img src="assets/okonomiyaki.gif" alt="리뷰 오코노미야끼 사진">
+                            </div>
+                        </div>
+                        
+                        <!-- Card 3 -->
+                        <div class="review-card glass-card">
+                            <div class="review-card-content">
+                                <div class="review-card-header">
+                                    <span class="reviewer-name">luc***님 (영수증 인증 리뷰)</span>
+                                    <span class="review-rating">★★★★★</span>
+                                </div>
+                                <p class="review-card-text">"혼술하기 편한 바 자리가 있어서 조용히 힐링하고 왔습니다. 모츠나베 국물이 진짜 진하고 고소해요. 사장님이 엄청 친절하시고 기분 좋은 아지트 같은 매장입니다."</p>
+                            </div>
+                            <div class="review-card-image">
+                                <img src="assets/interior_table.jpg" alt="리뷰 내부 매장 테이블 사진">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram Feed Simulation Section -->
+        <section id="instagram" class="section instagram-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <div class="section-subtitle">SOCIAL FEED</div>
+                    <h2 class="section-title">인스타그램 @yomi_kaya</h2>
+                    <p class="section-header-text">요미카야의 더 많은 요리 소식과 아기자기한 감성을 인스타그램 피드에서 만나보세요.</p>
+                </div>
+                
+                <div class="instagram-grid">
+                    
+                    <!-- Post 1 -->
+                    <a href="https://www.instagram.com/yomi_kaya/" target="_blank" rel="noopener" class="insta-item">
+                        <img src="assets/exterior.gif" alt="요미카야 매장 외관">
+                        <div class="insta-overlay">
+                            <span class="insta-likes"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/></svg> 152</span>
+                            <span class="insta-comments"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z" fill="currentColor"/></svg> 24</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Post 2 -->
+                    <a href="https://www.instagram.com/yomi_kaya/" target="_blank" rel="noopener" class="insta-item">
+                        <img src="assets/sashimi_today.jpg" alt="신선한 참돔과 연어">
+                        <div class="insta-overlay">
+                            <span class="insta-likes"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/></svg> 189</span>
+                            <span class="insta-comments"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z" fill="currentColor"/></svg> 18</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Post 3 -->
+                    <a href="https://www.instagram.com/yomi_kaya/" target="_blank" rel="noopener" class="insta-item">
+                        <img src="assets/interior_decor.jpg" alt="고양이 소품 및 인테리어">
+                        <div class="insta-overlay">
+                            <span class="insta-likes"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/></svg> 124</span>
+                            <span class="insta-comments"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z" fill="currentColor"/></svg> 12</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Post 4 -->
+                    <a href="https://www.instagram.com/yomi_kaya/" target="_blank" rel="noopener" class="insta-item">
+                        <img src="assets/okonomiyaki.gif" alt="오코노미야끼 서빙">
+                        <div class="insta-overlay">
+                            <span class="insta-likes"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/></svg> 210</span>
+                            <span class="insta-comments"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z" fill="currentColor"/></svg> 32</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Post 5 -->
+                    <a href="https://www.instagram.com/yomi_kaya/" target="_blank" rel="noopener" class="insta-item">
+                        <img src="assets/tomato_prep.jpg" alt="매실 토마토 담그기">
+                        <div class="insta-overlay">
+                            <span class="insta-likes"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/></svg> 167</span>
+                            <span class="insta-comments"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z" fill="currentColor"/></svg> 15</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Post 6 -->
+                    <a href="https://www.instagram.com/yomi_kaya/" target="_blank" rel="noopener" class="insta-item">
+                        <img src="assets/interior_bar.jpg" alt="바 테이블 좌석">
+                        <div class="insta-overlay">
+                            <span class="insta-likes"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/></svg> 142</span>
+                            <span class="insta-comments"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z" fill="currentColor"/></svg> 9</span>
+                        </div>
+                    </a>
+                    
+                </div>
+                
+                <div class="text-center mt-30">
+                    <a href="https://www.instagram.com/yomi_kaya/" target="_blank" rel="noopener" class="btn btn-secondary insta-btn-follow">
+                        <span>인스타그램 팔로우하기</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Find Us (Map & Operating Info) Section -->
+        <section id="location" class="section location-section">
+            <div class="container grid-layout-2">
+                
+                <!-- Operating Info -->
+                <div class="location-info-wrapper">
+                    <div class="section-subtitle">VISIT US</div>
+                    <h2 class="section-title">오시는 길 &amp; 안내</h2>
+                    
+                    <div class="info-list">
+                        
+                        <div class="info-item">
+                            <span class="info-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></span>
+                            <div>
+                                <h4>위치 주소</h4>
+                                <p>인천광역시 남동구 남동대로691번길 17 2층 (구월동 1176)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <span class="info-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M22 5.72l-4.24-4.24a1.5 1.5 0 0 0-2.12 0L12.4 4.73a1.5 1.5 0 0 0-.17 1.83l2.25 3.37a24.1 24.1 0 0 1-8.58 8.58L2.53 16.3a1.5 1.5 0 0 0-1.83.17L.17 19.64a1.5 1.5 0 0 0 0 2.12l4.24 4.24a3 3 0 0 0 4.24 0c7.87-7.87 11.37-14.88 13.35-20.04a3 3 0 0 0 0-4.24z" transform="scale(0.9)"/></svg></span>
+                            <div>
+                                <h4>전화번호</h4>
+                                <p><a href="tel:032-213-1437">032-213-1437</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <span class="info-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></span>
+                            <div>
+                                <h4>영업시간</h4>
+                                <p>
+                                    <strong>월~목:</strong> 17:00 ~ 01:00 (L.O 00:00)<br>
+                                    <strong>금~토:</strong> 17:00 ~ 02:00 (L.O 01:00)<br>
+                                    <span class="closed-tag">매주 수요일 정기 휴무</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <span class="info-icon">🚗</span>
+                            <div>
+                                <h4>주차 정보</h4>
+                                <p>전용 주차장이 마련되어 있지 않습니다. 인근 도로변의 한산한 구역 또는 대중교통 이용을 권장하며, '구월농산물도매시장 주차장'을 추천합니다.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div style="margin-top: 35px;">
+                        <a href="https://map.naver.com/p/entry/place/1162306479" target="_blank" rel="noopener" class="btn btn-primary btn-block" style="background: #03cf5d; border: none; font-size: 15px; padding: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 0 15px rgba(3, 207, 93, 0.3); text-decoration: none;">
+                            <span style="background: #fff; color: #03cf5d; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 12px; font-weight: 900; font-family: sans-serif;">N</span>
+                            <span>네이버 지도에서 빠른 길찾기</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Map Container -->
+                <div class="map-section-wrapper">
+                    <div id="map" class="img-shadow"></div>
+                </div>
+                
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="site-footer">
+        <div class="container footer-content text-center">
+            <div class="footer-logo" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                <img src="assets/logo.jpg" alt="요미카야 로고" class="logo-img-footer" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--primary); object-fit: cover;">
+                <span>YOMI KAYA</span>
+            </div>
+            <p class="footer-meta">인천 구월동 감성 이자카야 &amp; 숙성 사시미 전문</p>
+            <div class="footer-social-links">
+                <a href="https://www.instagram.com/yomi_kaya/" target="_blank" rel="noopener" aria-label="인스타그램 바로가기">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="copyright">&copy; 2026 Yomi Kaya. All rights reserved. Designed for Yomikaya Izakaya.</p>
+        </div>
+    </footer>
+
+    <!-- Reservation Modal -->
+    <div id="booking-modal" class="modal-overlay">
+        <div class="modal-container glass-card">
+            <button class="modal-close-btn" id="modal-close-btn" aria-label="닫기">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </button>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <span class="modal-tag">RESERVATION</span>
+                    <h2 class="modal-title">요미카야 테이블 예약</h2>
+                    <p class="modal-subtitle">예약 일시와 인원을 선택해 주세요.</p>
+                </div>
+                
+                <!-- Booking Form -->
+                <form id="reservation-form">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="booking-name">예약자명</label>
+                            <input type="text" id="booking-name" required placeholder="성함을 입력하세요">
+                        </div>
+                        <div class="form-group">
+                            <label for="booking-phone">연락처</label>
+                            <input type="tel" id="booking-phone" required placeholder="010-0000-0000">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="booking-date">예약 날짜</label>
+                            <input type="date" id="booking-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="booking-time">예약 시간</label>
+                            <select id="booking-time" required>
+                                <option value="" disabled selected>시간 선택</option>
+                                <option value="17:00">17:00 (오픈)</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="20:00">20:00</option>
+                                <option value="21:00">21:00</option>
+                                <option value="22:00">22:00</option>
+                                <option value="23:00">23:00</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="booking-guests">예약 인원</label>
+                            <select id="booking-guests" required>
+                                <option value="" disabled selected>인원 선택</option>
+                                <option value="1">1명 (혼술/카운터석)</option>
+                                <option value="2">2명</option>
+                                <option value="3">3명</option>
+                                <option value="4">4명</option>
+                                <option value="5">5인 이상 (매장 문의)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="booking-request">요청 사항 (선택)</label>
+                        <textarea id="booking-request" rows="2" placeholder="예: 바(카운터) 좌석 희망, 생일 기념일 등"></textarea>
+                    </div>
+                    
+                    <div class="form-notice">
+                        <p>⚠️ 매주 수요일은 정기 휴무입니다.</p>
+                        <p>⚠️ 예약 시간 15분 경과 시 예약이 자동 취소될 수 있습니다.</p>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <span>예약 신청 완료하기</span>
+                    </button>
+                </form>
+                
+                <!-- Success State (Hidden by default) -->
+                <div class="modal-success-state" id="modal-success-state" style="display: none;">
+                    <div class="success-icon-anim">
+                        <svg viewBox="0 0 52 52" class="checkmark-svg">
+                            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                    </div>
+                    <h3>예약 정보 등록 완료!</h3>
+                    <p class="success-info">입력하신 내용이 사이트에 성공적으로 기록되었습니다.</p>
+                    
+                    <div class="booking-receipt glass-card">
+                        <div class="receipt-row"><strong>예약자:</strong> <span id="receipt-name"></span></div>
+                        <div class="receipt-row"><strong>일시:</strong> <span id="receipt-datetime"></span></div>
+                        <div class="receipt-row"><strong>인원:</strong> <span id="receipt-guests"></span></div>
+                    </div>
+
+                    <div style="margin: 20px 0; border-top: 1px solid rgba(157,78,221,0.2); padding-top: 20px;">
+                        <p style="font-size: 13px; color: var(--secondary); margin-bottom: 12px; font-weight: 700;">💡 요미카야 공식 채널로 실제 확정 요청을 보내주세요!</p>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <a href="https://map.naver.com/p/entry/place/1162306479" target="_blank" rel="noopener" class="btn btn-primary" style="background: #03cf5d; border: none; font-size: 14px; padding: 12px; text-decoration: none;">
+                                <span>네이버 예약/지도 신청 바로가기</span>
+                            </a>
+                            <button id="copy-dm-btn" class="btn btn-primary" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border: none; font-size: 14px; padding: 12px; width: 100%;">
+                                <span>양식 복사 후 인스타 DM 보내기</span>
+                            </button>
+                            <p id="copy-toast" style="display: none; color: #c77dff; font-size: 12px; margin-top: 5px; font-weight: 500; text-align: center;">📋 예약 양식이 복사되었습니다! DM 창에 붙여넣기(Ctrl+V) 해주세요.</p>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-secondary btn-block" id="success-close-btn">
+                        <span>닫기</span>
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet.js Map JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
